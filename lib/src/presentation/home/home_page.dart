@@ -5,6 +5,7 @@ import 'package:scale_flutter/src/presentation/whouse/whouse_page.dart';
 import 'package:window_manager/window_manager.dart';
 
 import '../common/widgets/window_buttons.dart';
+import '../document/document_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,7 +19,6 @@ class _HomePageState extends State<HomePage> with WindowListener {
 
   int index = 0;
 
-  final settingsController = ScrollController();
   final viewKey = GlobalKey();
 
   @override
@@ -30,14 +30,8 @@ class _HomePageState extends State<HomePage> with WindowListener {
   @override
   void dispose() {
     windowManager.removeListener(this);
-    settingsController.dispose();
-    super.dispose();
-  }
 
-  @override
-  void onWindowResize() {
-    print('a');
-    super.onWindowResize();
+    super.dispose();
   }
 
   @override
@@ -83,20 +77,47 @@ class _HomePageState extends State<HomePage> with WindowListener {
         items: [
           PaneItem(
             icon: Icon(
-              Icons.scale,
+              Icons.receipt,
               color: Colors.blue,
             ),
             title: const Text(
-              'Ζυγίσεις ημέρας',
+              'Νέο παραστατικό',
             ),
           ),
           PaneItem(
             icon: Icon(
-              Icons.warehouse,
+              Icons.scale,
               color: Colors.blue,
             ),
             title: const Text(
-              'Αποθήκη',
+              'Ιστορικό Ζυγίσεων',
+            ),
+          ),
+          PaneItem(
+            icon: Icon(
+              Icons.drive_eta,
+              color: Colors.blue,
+            ),
+            title: const Text(
+              'Οδηγοί',
+            ),
+          ),
+          PaneItem(
+            icon: Icon(
+              Icons.hardware,
+              color: Colors.blue,
+            ),
+            title: const Text(
+              'Υλικά',
+            ),
+          ),
+          PaneItem(
+            icon: Icon(
+              Icons.manage_accounts,
+              color: Colors.blue,
+            ),
+            title: const Text(
+              'Οργανισμοί',
             ),
           ),
           PaneItemSeparator(),
@@ -121,7 +142,10 @@ class _HomePageState extends State<HomePage> with WindowListener {
       ),
       content: NavigationBody(
         index: index,
-        children: const [WhousePage()],
+        children: const [
+          DocumentPage(),
+          WhousePage(),
+        ],
       ),
     );
   }
