@@ -1,5 +1,6 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart' show Icons;
+import 'package:scale_flutter/src/presentation/vehicle/vehicle_page.dart';
 import 'package:scale_flutter/src/presentation/whouse/whouse_page.dart';
 
 import 'package:window_manager/window_manager.dart';
@@ -95,7 +96,16 @@ class _HomePageState extends State<HomePage> with WindowListener {
           ),
           PaneItem(
             icon: Icon(
-              Icons.drive_eta,
+              Icons.drive_eta_rounded,
+              color: Colors.blue,
+            ),
+            title: const Text(
+              'Οχήματα',
+            ),
+          ),
+          PaneItem(
+            icon: Icon(
+              Icons.person,
               color: Colors.blue,
             ),
             title: const Text(
@@ -145,6 +155,7 @@ class _HomePageState extends State<HomePage> with WindowListener {
         children: const [
           DocumentPage(),
           WhousePage(),
+          VehiclePage(),
         ],
       ),
     );

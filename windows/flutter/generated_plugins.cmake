@@ -5,6 +5,7 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   flutter_acrylic
   flutter_libserialport
+  printing
   window_manager
 )
 

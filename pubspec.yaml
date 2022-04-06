@@ -37,6 +37,8 @@ dependencies:
   fluent_ui: ^3.10.0
   flutter_acrylic: ^1.0.0+2
   window_manager: ^0.2.1
+  printing: ^5.7.5
+  pdf: ^3.7.3
   
 
   # The following adds the Cupertino Icons font to your application.
